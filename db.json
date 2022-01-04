@@ -1,0 +1,82 @@
+{
+  "0": {
+    "nodeName": "Norpool",
+    "nodeHeight": 928771,
+    "connectionsIn": 17,
+    "connectionsOut": 2,
+    "nodeSynced": true,
+    "nodeStatus": "OK"
+  },
+  "1": {
+    "nodeName": "Wasa",
+    "nodeHeight": 928771,
+    "connectionsIn": 0,
+    "connectionsOut": 3,
+    "nodeSynced": true,
+    "nodeStatus": "OK"
+  },
+  "2": {
+    "nodeName": "Swepool",
+    "nodeHeight": 928771,
+    "connectionsIn": 8,
+    "connectionsOut": 6,
+    "nodeSynced": true,
+    "nodeStatus": "OK"
+  },
+  "3": {
+    "nodeName": "Blocksum",
+    "nodeHeight": 928771,
+    "connectionsIn": 0,
+    "connectionsOut": 8,
+    "nodeSynced": true,
+    "nodeStatus": "OK"
+  },
+  "4": {
+    "nodeName": "Göta Pool",
+    "nodeHeight": 928771,
+    "connectionsIn": 4,
+    "connectionsOut": 6,
+    "nodeSynced": true,
+    "nodeStatus": "OK"
+  },
+  "5": {
+    "nodeName": "DrakPool",
+    "nodeHeight": 928771,
+    "connectionsIn": 14,
+    "connectionsOut": 6,
+    "nodeSynced": true,
+    "nodeStatus": "OK"
+  },
+  "6": {
+    "nodeName": "Gamersnest",
+    "nodeHeight": 928771,
+    "connectionsIn": 4,
+    "connectionsOut": 6,
+    "nodeSynced": true,
+    "nodeStatus": "OK"
+  },
+  "7": {
+    "nodeName": "Privacy Mine SSL",
+    "nodeHeight": 928771,
+    "connectionsIn": 0,
+    "connectionsOut": 8,
+    "nodeSynced": true,
+    "nodeStatus": "OK"
+  },
+  "8": {
+    "nodeName": "Privacy Mine",
+    "nodeHeight": 928771,
+    "connectionsIn": 0,
+    "connectionsOut": 8,
+    "nodeSynced": true,
+    "nodeStatus": "OK"
+  },
+  "9": {
+    "nodeName": "KuKoHumoR",
+    "nodeHeight": 928771,
+    "connectionsIn": 7,
+    "connectionsOut": 8,
+    "nodeSynced": true,
+    "nodeStatus": "OK"
+  }
+}
