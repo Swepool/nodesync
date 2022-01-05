@@ -37,6 +37,7 @@ setInterval(async function() {
           nodeName: node.name,
           nodeUrl:node.url,
           nodePort: node.port,
+          nodeFee: node.fee,
           nodeSsl: node.ssl,
           nodeHeight: data.height,
           connectionsIn: data.incoming_connections_count,
@@ -55,7 +56,7 @@ setInterval(async function() {
 }, 5000)
 
 async function createFile(array) {
-  fs.writeFile('db.json', array, (err) => {
+  fs.writeFile('/var/www/html/nodes.json', array, (err) => {
     if (err) {
       throw err;
     }
