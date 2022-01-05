@@ -1,56 +1,65 @@
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 import fs from 'fs'
 
-//Fetch list of nodes
+//Fetch list of nodes from github
 setInterval(async function() {
 
-  fetch("https://raw.githubusercontent.com/kryptokrona/kryptokrona-nodes-list/master/nodes.json")
+  fetch('https://raw.githubusercontent.com/kryptokrona/kryptokrona-nodes-list/master/nodes.json')
     .then(res => res.json())
     .then (data => {
 
-      //Fetch data from all nodes in list
+      //Fetch all nodes and get data from each
       for(const node of data.nodes) {
-        fetch("http://" + node.url + ":11898/getinfo")
+        fetch('http://' + node.url + ':11898/getinfo')
           .catch(error => {
             throw(error);
           })
           .then(res => res.json())
           .then(data => {
 
-            //only continue with nodes replying with status: "OK" and synced
-            //if(data.status === "OK" && data.synced)
-            renderNode(node, data)
+            //Only continue with nodes replying with status: "OK" and synced
+            if(data.status === "OK" && data.synced)
+            createNodeList(node, data)
           })
+
+        //Catch err
         process.on('uncaughtException', function(err) {
           console.log('problem', err);
         });
+
       }
 
       let nodes = []
-//Render all the nodes to the table
-      async function renderNode(node, data) {
+      //create nodelist
+      async function createNodeList(node, data) {
+
         nodes.push({
           nodeName: node.name,
+          nodeUrl:node.url,
+          nodePort: node.port,
+          nodeSsl: node.ssl,
           nodeHeight: data.height,
           connectionsIn: data.incoming_connections_count,
           connectionsOut: data.outgoing_connections_count,
           nodeSynced: data.synced,
-          nodeStatus: data.status
+          nodeStatus: data.status,
+          nodeVersion: data.version
         })
-        let jsonString = JSON.stringify({ ...nodes })
-        console.log(jsonString)
-        test(jsonString)
+
+        let jsonString = JSON.stringify({nodes: nodes})
+        await createFile(jsonString)
+
       }
 
     })
-}, 15000)
+}, 5000)
 
-async function test(array) {
+async function createFile(array) {
   fs.writeFile('db.json', array, (err) => {
     if (err) {
       throw err;
     }
-    console.log("JSON data is saved.");
+    console.log('JSON data is saved.');
   });
 
 }
