@@ -53,7 +53,7 @@ setInterval(async function() {
       }
 
     })
-}, 5000)
+}, 60000)
 
 async function createFile(array) {
   fs.writeFile('/var/www/html/nodes.json', array, (err) => {
